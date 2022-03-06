@@ -1,15 +1,12 @@
 <?php
+require_once 'dataConnect.php';
 
-require_once 'db/database.php';
 
-
-function get_Results(){
-    $query_results = mysqli_query(get_Connect(), "SELECT * FROM overpin.comment");
-    $results = mysqli_fetch_all($query_results, MYSQLI_ASSOC);
-    return $results;
+function getResults()
+{
+    $query_results = mysqli_query(getConnect(), "SELECT * FROM overpin.comment");
+    return mysqli_fetch_all($query_results, MYSQLI_ASSOC);
 }
 
-/*$comment = get_Results()[0];
-print_r($comment['user_name']);*/
-
+echo json_encode(getResults());
 
