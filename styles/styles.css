@@ -1,0 +1,26 @@
+.guitar{
+    margin-left: 120px;
+    width: 50%;
+    height: 50%;
+}
+.container{
+    margin-bottom: 80px;
+}
+.form-control{
+    margin-top: 20px;
+}
+button{
+    margin-top: 10px;
+}
+
+#deleteComment{
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+#formError{
+    color: red;
+}
+
+#captchaError{
+    color: red;
+}

@@ -1,38 +1,36 @@
-<?php
-require_once 'read.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../styles/bootstrap.min.css">
-    <link rel="stylesheet" href="../styles/blog.css">
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href=../styles/styles.css>
     <title>Comment</title>
 </head>
-<body>
-    <div class="container mt-5">
-        <div class="row">
-            <img src="../images/180557.970.jpg" alt="guitar" class="guitar">
-        </div>
+<body onload="getComments()">
+<div class="container mt-5">
+    <div class="row">
+        <img src="../images/180557.970.jpg" alt="guitar" class="guitar">
+    </div>
+    <div class="alert alert-info mt-2">
+        <form id="comment-form" >
+            <input type="text" name="name" id="name" placeholder="Введите ваше имя" class="form-control">
+            <textarea name="comment" id="comment" placeholder="Введите текст комментария"
+                      class="form-control"></textarea>
+            <span>Введите  сумму чисел </span><span id="firstCount"><?=rand(0, 10)?></span> и <span id="secondCount"><?=rand(0, 10)?></span>
 
-        <div class="alert alert-info mt-2">
-        
-            <form action="create.php" method="post">
-                <input type="text" name="name" placeholder="Введите ваше имя" class="form-control">
-                <textarea name="comment" placeholder="Введите текст комментария" class="form-control"></textarea>
-                <button type="submit" class="btn btn-success">Добавить комментарий</button>
-            </form>
-            <br>
-            <h6>Комментарии:</h6>
-            <div class="alert alert-info mt-2 mb-5">
-                <?php $comments = get_Results(); ?>
-                <?php foreach (@$comments as $comment): ?>
-                <h3>User: <?=$comment['user_name']?></h3>
-                <h4>Comment: <?=$comment['comment_text']?></h4>
-                <h6>Data: <?=$comment['data_time']?></h6>
-                <?php endforeach; ?>
-            </div>
+            <input id="sumCount" type="text"><br>
+            <button type="submit" class="btn btn-success" id="addComment">Добавить комментарий</button>
+        </form>
+        <div id="formError"></div>
+        <div id="captchaError"></div>
+        <br>
+        <h6>Комментарии:</h6>
+        <div class="alert alert-info mt-2 mb-5" id="comments">
         </div>
+    </div>
+</div>
+<script src="../js/jquery-3.6.0.min.js"></script>
+<script src="../js/getComments.js"></script>
+<script src="../js/addComment.js"></script>
 </body>
 </html>
